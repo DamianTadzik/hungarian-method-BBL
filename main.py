@@ -1,31 +1,19 @@
 import numpy as np
 import random
-from typing import List
+import brzana
+import lewicka
 
 
 def main():
-    random.seed(1)
-    matrix = np.array([[random.randint(0, 9) for i in range(6)] for j in range(6)])
+    random.seed(1)      # Ziarno generatora
+    matrix = np.array([[random.randint(0, 9) for i in range(6)] for j in range(6)])   # Tworzymy losową macierz 6 x 6
 
     print("Macierz początkowa:\n{}".format(matrix))
 
-
-#Redukcja macierzy
-def lewicka(matrix) ->  List[List]:
-
-    sum_reduction = 0
-    for row in range(len(matrix)):
-        min_value = min(matrix[row])
-        sum_reduction += min_value
-        for col in range(len(matrix)):
-            matrix[row][col]  -= min_value
-    
-    return matrix, sum_reduction #macierz, dolne ograniczenie
+    lewicka.lewicka(matrix)
+    brzana.brzana()
 
 
-# Alg wyznaczania zer niezależnych
-def brzana():
-    return 0    # macierz,
 
 
 # Alg wykreślania zer macierzy minimalną liczbą linii
