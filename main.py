@@ -1,7 +1,7 @@
 import numpy as np
 import random
-import brzana
-import lewicka
+from brzana import brzana
+from lewicka import lewicka
 
 
 def main():
@@ -10,10 +10,9 @@ def main():
 
     print("Macierz początkowa:\n{}".format(matrix))
 
-    lewicka.lewicka(matrix)
-    brzana.brzana()
-
-
+    reduced_matrix, lower_bound = lewicka(matrix)   # redukcja macierzy
+    independent_zeros = brzana(reduced_matrix)  # wyszukanie zer niezależnych
+    x = 1
 
 
 # Alg wykreślania zer macierzy minimalną liczbą linii
